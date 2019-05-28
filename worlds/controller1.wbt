@@ -2,12 +2,15 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.6931032800836722 0.6931032800836722 0.1980295085953349 0.75
-  position 1.2 1.6 2.3
+  orientation -0.5898006910328262 0.7923217843240251 0.15608118061698972 0.60307341747074
+  position 1.1591971957247797 0.9278031250462545 2.622995146664953
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 Floor {
+}
+Robot {
+  controller "controller1"
 }
