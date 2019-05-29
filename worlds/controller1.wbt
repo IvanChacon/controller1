@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.5898006910328262 0.7923217843240251 0.15608118061698972 0.60307341747074
-  position 1.1591971957247797 0.9278031250462545 2.622995146664953
+  orientation 1 0 0 4.71238898038469
+  position -1.3191896884215266e-16 0.2582371279338903 2.295715088819552e-16
 }
 TexturedBackground {
 }
@@ -12,5 +12,22 @@ TexturedBackgroundLight {
 Floor {
 }
 Robot {
+  translation 0 0.15 0
+  children [
+    LED {
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.01
+          }
+        }
+      ]
+    }
+  ]
   controller "controller1"
 }

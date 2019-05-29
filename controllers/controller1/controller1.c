@@ -12,6 +12,7 @@
  */
 #include <webots/robot.h>
 #include <stdio.h>
+#include <webots/led.h>
 
 
 /*
@@ -28,8 +29,14 @@ int main(int argc, char **argv)
 {
   /* necessary to initialize webots stuff */
   wb_robot_init();
+  
 printf("Doing some setup\n");
-int seconds_counter = 0;
+
+int seconds_counter=0;
+int led_state=0;
+
+WbDeviceTag my_led = wb_robot_get_device("led");
+  
   /*
    * You should declare here WbDeviceTag variables for storing
    * robot devices like this:
@@ -42,9 +49,11 @@ int seconds_counter = 0;
    * and leave the loop when the simulation is over
    */
   while (wb_robot_step(TIME_STEP) != -1) {
-printf("Doing some repetitive tasks\n");
-printf("Time = %d\n", seconds_counter);
-seconds_counter++;
+  
+       printf("Doing some repetitive tasks\n");
+       printf("Time = %i\n", seconds_counter);
+       seconds_counter++;
+
     /*
      * Read the sensors :
      * Enter here functions to read sensor data, like:
@@ -57,6 +66,17 @@ seconds_counter++;
      * Enter here functions to send actuator commands, like:
      * wb_differential_wheels_set_speed(100.0,100.0);
      */
+     
+           led_state = wb_led_get(my_led);
+           printf("Led state %i\n",led_state);
+           
+           if (led_state== 0) {
+           wb_led_set(my_led, 1);
+           }
+           else {
+           wb_led_set(my_led,0);
+           }
+  
   };
 
   /* Enter your cleanup code here */
